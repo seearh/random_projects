@@ -1,5 +1,6 @@
-# I seem to reserve doing the stupidest things for you...
-# A Nerd's Christmas Card for his Nerd lover
+"""
+Library to (lazily) print a Christmas tree
+"""
 
 
 def gen_asterisks(num_of_lines, inverted=False):
@@ -79,29 +80,3 @@ def gen_tree(initial, spread, parts):
             offset = (spread-1)*parts,
             print_longest=True,
         )
-            
-
-star = overlap_lines(
-    [
-        gen_asterisks(7),
-        gen_asterisks(7, inverted=True),
-    ],
-    offset=5,
-    print_longest=True
-)
-stem = ("*" * 3 for i in range(4))
-base = ("*" * (2*i+20) for i in range(5))
-tree = gen_tree(initial=5, spread=4, parts=6)
-
-with open("love_letter.byte", "rb") as f:
-    love_letter = f.read().decode()
-
-print_generated_lines(
-    words_overlay(
-        love_letter,
-        star,
-        tree,
-        stem,
-        base,
-    )
-)
