@@ -1,6 +1,10 @@
 # random_projects
 A repo for random projects
 
+21 Dec 2020
+hotel_bookings_analysis:
+Data Visualization & Storytelling Assignment 1. Exploratory analysis of hotel bookings using Tableau.
+
 23 Dec 2020
 christmas_card:
 Python code to print a christmas tree
