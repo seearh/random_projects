@@ -16,3 +16,7 @@ A simple web application that performs sentiment analysis with the XGBoost algor
 23 Jan 2021
 udacity_payment_fraud_detection:
 The use of a Binary Classifier on AWS SageMaker to detect fraudulent payments based on unknown features, in a context of class imbalance.
+
+9 Sep 2022
+citi_kdb
+Real-time log feed clients to a reporting main server accessible through HTTP.

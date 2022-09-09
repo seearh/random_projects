@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <title>Citi</title>
+</head>
+<body onload="connect();">
+    <!-- Set up placeholders to display the trade outputs -->
+    <section id="trades" class="display">
+        <div class="split">
+            <h3>Report</h3>
+            <table id="tblTrade"></table>
+        </div>
+    </section>
+    <!-- Load JavaScript file -->
+    <script src="websockets.js"></script>
+    <!-- Define some CSS styling on page elements -->
+    <style>
+        section {margin:10px;padding:20px;width:95%;}
+        button {margin:10px;}
+        h3 {margin:5px;}
+        table {border-collapse:collapse;text-align:center;width:100%;} 
+        td,th {border:1px solid black;padding:5px 20px;width:25%}
+        .split {float:left;width:45%;margin-right:20px;display:table;}
+        #selectSyms {padding:10px;min-height:30px;}
+    </style>
+</body>
+</html>
