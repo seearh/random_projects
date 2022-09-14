@@ -1,5 +1,5 @@
 /* initialise variable */
-var ws, trades = document.getElementById("tblTrade");
+var ws, trades = document.getElementById("tblSumm");
 
 function connect() {
     if ("WebSocket" in window) {
