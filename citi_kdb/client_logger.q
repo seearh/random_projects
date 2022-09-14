@@ -41,7 +41,7 @@ fillNTradesBetween:{[n;s;e]
 	}
 
 fill10SecTrades:{
-	fillNTradesBetween[floor 10*avg lBound,uBound;x;x+00:00:10]
+	fillNTradesBetween[10*first lBound+1?uBound-lBound;x;x+00:00:10]
 	}
 
 / Timer function
