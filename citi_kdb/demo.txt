@@ -1,6 +1,5 @@
 Logs Generator - This kdb process generates mocked trade logs in the specified format and writes to a log file with the specified naming convention.
 
-STARTUP INSTRUCTIONS
 1. In a new session, set environment variables
 	TRADE_LOG_CID=1
 	TRADE_LOG_DIR=<desired directory to set log file>
@@ -26,7 +25,6 @@ Everytime the timer ticks (0.1s), the process:
 
 Client Feed - This kdb process routinely monitors the size of the log file and publishes any appended log entries to the Main Server.
 
-STARTUP INSTRUCTIONS
 1. In a new session, set environment variables
 	TRADE_LOG_CID=1
 	TRADE_LOG_DIR=<desired directory to set log file>
@@ -60,7 +58,6 @@ It can be extended to parse and publish multiple log files according to regexes.
 
 Main Server - This kdb process receives log entries from (potentially many) Client Feed. It routinely splays the summary report, keeping only 1 entry per AccountID and Symbol in-memory. The concise summary report is available in real-time through the websockets.html file.
 
-STARTUP INSTRUCTIONS
 1. In a new session, set environment variables 
 	DB_ROOT=<desired directory to splay summary report>
 		e.g. DB_ROOT=c:/Users/congr/Desktop/Python/random_projects/citi_kdb/db
