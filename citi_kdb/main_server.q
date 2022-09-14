@@ -3,7 +3,6 @@
 / Schemas
 trades:flip`OrderNo`ActivityTime`FillNumber`ResponseType`OrderID`Symbol`Side`Price`Quantity`AccountID`ErrorCode`TimeStamp`Exchange_Order_Id`ChildResponseType`Duration`ExchTs!"JPJSJSSFJSIJ*SS*"$\:()
 summ:3!flip`dateTransact`accID`sym`open`high`low`vol`val`lastTransact!"DSSFFFJFP"$\:()
-viewSumm::1_summ
 
 / Update analytics
 upd:{ 
@@ -17,9 +16,7 @@ upd:{
 / 3. Price (low)
 / 4. Total trade (vol)ume
 / 5. Change in trade (val)ue
-/ 6. Sym (expo)sure
-/ 7. Percentage exposure (expoPct)
-/ 8. Last transacted (lastTransact)
+/ 6. Last transacted (lastTransact)
 updSumm:{
     / Aggregate trades table
     new:select 
@@ -39,7 +36,6 @@ updSumm:{
     new:new lj select last open by dateTransact,sym from `summ;
 
     / Combine newly aggregated table with summary table
-    newKey:key new;
     combined:(0!new),select dateTransact,accID,sym,open,low,high,vol,val,lastTransact from `summ;
     combined:select last open,min low,max high,sum vol,sum val,max lastTransact by dateTransact,accID,sym from combined;
 
@@ -52,7 +48,7 @@ lastSaved:.z.p
 symDir:(`:.;hsym dbRoot) count dbRoot:`$getenv`DB_ROOT
 
 splaySumm:{
-    .Q.dd/[(hsym dbRoot;`summ;`)] upsert .Q.en[symDir]`time xcols 0!update time:.z.p from viewSumm;
+    .Q.dd/[(hsym dbRoot;`summ;`)] upsert .Q.en[symDir]`time xcols 0!update time:.z.p from get`summ;
     delete from `summ where dateTransact<>(last;dateTransact) fby ([]accID;sym);
     lastSaved::.z.p
     }
